@@ -120,7 +120,7 @@ export default function Contact() {
           borderTop: "1px solid var(--border)",
         }}>
           <span style={{ fontSize: 13, color: "var(--text-muted)", fontWeight: 300 }}>
-            © 2025 Shreya Sagar · Built with Next.js & Framer Motion
+            © 2026 Shreya Sagar · Built with Next.js & Framer Motion
           </span>
           <div style={{ display: "flex", gap: 24 }}>
             {[
