@@ -3,11 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import { skills } from "../data/portfolio";
 
 const categoryColors: Record<string, string> = {
-  Languages: "#0071e3",
-  Frontend: "#5e5ce6",
-  Backend: "#00b4d8",
-  Databases: "#30d158",
-  "Cloud & DevOps": "#ff9f0a",
+  "Programming Languages": "#0071e3",
+  "Backend Engineering":   "#00b4d8",
+  "Cloud & Infrastructure":"#ff9f0a",
+  "Frontend":              "#5e5ce6",
+  "Databases":             "#30d158",
+  "DevOps & Tools":        "#bf5af2",
+  "Core CS":               "#ff375f",
 };
 
 export default function Skills() {

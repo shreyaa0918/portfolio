@@ -56,7 +56,11 @@ export default function Experience() {
                 onMouseEnter={e => { if (active !== exp.id) e.currentTarget.style.background = "var(--bg-alt)"; }}
                 onMouseLeave={e => { if (active !== exp.id) e.currentTarget.style.background = "transparent"; }}
               >
-                <span style={{ fontSize: 20 }}>{exp.logo}</span>
+                <img
+                  src={exp.logo}
+                  alt={exp.company}
+                  style={{ width: 28, height: 28, borderRadius: 6, objectFit: "contain" }}
+                />
                 <div>
                   <div style={{
                     fontSize: 14, fontWeight: 500,
@@ -89,12 +93,16 @@ export default function Experience() {
               </div>
               <div style={{
                 width: 52, height: 52, borderRadius: 14,
-                background: `${current.color}12`,
-                border: `1px solid ${current.color}20`,
+                background: "var(--accent-subtle)",
+                border: "1px solid var(--border)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 24,
               }}>
-                {current.logo}
+                <img
+                  src={current.logo}
+                  alt={current.company}
+                  style={{ width: 28, height: 28, objectFit: "contain" }}
+                />
               </div>
             </div>
 

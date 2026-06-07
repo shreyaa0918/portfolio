@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { education, certifications } from "../data/portfolio";
 
 export default function Education() {
@@ -7,7 +8,7 @@ export default function Education() {
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ marginBottom: 56 }}>
           <span className="chip font-mono" style={{ fontSize: 11, marginBottom: 16, display: "inline-flex" }}>Education</span>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 600, letterSpacing: "-0.03em" }}>Academic background</h2>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 600, letterSpacing: "-0.03em" }}>Academic Background</h2>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 16, marginBottom: 32 }}>
@@ -30,15 +31,28 @@ export default function Education() {
                 }}>Current</span>
               )}
 
-              <div style={{ paddingLeft: 12 }}>
-                <h3 style={{ fontSize: 17, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 6 }}>{edu.school}</h3>
-                <p style={{ fontSize: 14, color: "var(--text-secondary)", marginBottom: 4, fontWeight: 300 }}>{edu.degree}</p>
-                <p style={{ fontSize: 12, color: "var(--text-muted)", marginBottom: 16 }}>{edu.period} · {edu.location}</p>
-
-                <div style={{ display: "flex", gap: 24 }}>
-                  <div>
-                    <div style={{ fontSize: 11, color: "var(--text-muted)", marginBottom: 2, textTransform: "uppercase", letterSpacing: "0.06em" }}>GPA</div>
-                    <div style={{ fontSize: 20, fontWeight: 600, letterSpacing: "-0.03em", color: "var(--accent)" }}>{edu.gpa}</div>
+              <div style={{ paddingLeft: 12, display: "flex", gap: 16, alignItems: "flex-start" }}>
+                <img
+                  src={edu.logo}
+                  alt={edu.school}
+                  style={{
+                    width: 44, height: 44, borderRadius: 10,
+                    objectFit: "contain",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
+                    padding: 4,
+                    flexShrink: 0,
+                  }}
+                />
+                <div>
+                  <h3 style={{ fontSize: 17, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 6 }}>{edu.school}</h3>
+                  <p style={{ fontSize: 14, color: "var(--text-secondary)", marginBottom: 4, fontWeight: 300 }}>{edu.degree}</p>
+                  <p style={{ fontSize: 12, color: "var(--text-muted)", marginBottom: 16 }}>{edu.period} · {edu.location}</p>
+                  <div style={{ display: "flex", gap: 24 }}>
+                    <div>
+                      <div style={{ fontSize: 11, color: "var(--text-muted)", marginBottom: 2, textTransform: "uppercase", letterSpacing: "0.06em" }}>GPA</div>
+                      <div style={{ fontSize: 20, fontWeight: 600, letterSpacing: "-0.03em", color: "var(--accent)" }}>{edu.gpa}</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -53,11 +67,22 @@ export default function Education() {
             <div key={i} className="card" style={{ padding: "20px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
               <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
                 <div style={{
-                  width: 40, height: 40, borderRadius: 12,
+                  width: 44, height: 44, borderRadius: 12,
                   background: "rgba(0,113,227,0.06)",
                   border: "1px solid rgba(0,113,227,0.12)",
-                  display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20,
-                }}>🏆</div>
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  flexShrink: 0, overflow: "hidden",
+                }}>
+                  {cert.logo ? (
+                    <img
+                      src={cert.logo}
+                      alt={cert.issuer}
+                      style={{ width: 28, height: 28, objectFit: "contain" }}
+                    />
+                  ) : (
+                    <span style={{ fontSize: 20 }}>🏆</span>
+                  )}
+                </div>
                 <div>
                   <div style={{ fontSize: 15, fontWeight: 500, letterSpacing: "-0.01em" }}>{cert.title}</div>
                   <div style={{ fontSize: 12, color: "var(--text-muted)", marginTop: 2 }}>{cert.issuer} · {cert.date}</div>
